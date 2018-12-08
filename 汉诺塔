@@ -1,0 +1,30 @@
+#汉诺塔
+#规则：1,每次只能移动一次；2,小盘子必须在大盘子上面
+def hano(n,a,b,c):
+    '''
+    :param n:有n个盘子
+    :param a: 开始区
+    :param b: 缓冲区
+    :param c: 目标区
+    :return:
+    '''
+    if n==1:
+        print(a, '-->', c)
+        return None
+    if n==2:
+        print(a, '-->', b)
+        print(a, '-->', c)
+        print(b, '-->', c)
+        return None
+    #将n-1个盘子，借助c移动到b，再将最大的盘子移到c
+    hano(n-1,a,c,b)
+    #将n-1个盘子，借助a移动到c
+    hano(n-1,b,a,c)
+    return None
+
+a='A'
+b='B'
+c='C'
+n=5
+#调用
+hano(n,a,b,c)
